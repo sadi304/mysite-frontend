@@ -30,23 +30,6 @@ h6 {
   font-family: "Source Code Pro", monospace;
 }
 
-.max-width {
-  max-width: 1250px;
-  margin: 0 auto !important;
-  width: 100%;
-}
-
-.header-box {
-  text-align: left;
-  width: 100%;
-}
-
-.header-box h3 {
-  font-size: 32px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
 main {
   width: 100%;
 }

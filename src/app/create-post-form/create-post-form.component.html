@@ -1,0 +1,18 @@
+<form class="uk-form-stacked" (ngSubmit)="onSubmit(blogForm)" #blogForm="ngForm">
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-text">Title of the post</label>
+    <div class="uk-form-controls">
+      <input class="uk-input" id="form-stacked-text" [(ngModel)]="name" name="name" type="text" placeholder="Some text...">
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-select">Post Body</label>
+    <div class="uk-form-controls">
+      <textarea [froalaEditor]='{height: 300}' [(ngModel)]="editorContent" name="editor"></textarea>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <button class="uk-button uk-button-secondary uk-button-large">SUBMIT</button>
+  </div>
+</form>
