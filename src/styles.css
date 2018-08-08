@@ -16,7 +16,7 @@
 
 html,
 body {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Lato", monospace;
   margin: 0;
   padding: 0;
 }
@@ -27,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Lato", monospace;
 }
 
 main {

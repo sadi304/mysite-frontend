@@ -7,21 +7,52 @@ import { PortfolioService } from "../portfolio.service";
   styleUrls: ["./create-post-form.component.css"]
 })
 export class CreatePostFormComponent implements OnInit {
-  submitted = false;
-  editorContent = "blaaa";
-  name = "";
-  onSubmit(data) {
-    this.submitted = true;
-    console.log(data.value);
-    this.postData(data.value);
+  editorContent = "";
+  title = "";
+  thumbnail: File;
+  public options: object = {
+    height: 300,
+    events: {
+      "froalaEditor.image.beforeUpload": (e, editor, files) => {
+        if (files.length) {
+          // Create a File Reader.
+          var reader = new FileReader();
+
+          // Set the reader to insert images when they are loaded.
+          reader.onload = function(e) {
+            var result = reader.result;
+            editor.image.insert(result, null, null, editor.image.get());
+          };
+
+          // Read image as base64.
+          reader.readAsDataURL(files[0]);
+        }
+
+        editor.popups.hideAll();
+
+        // Stop default upload chain.
+        return false;
+      }
+    }
+  };
+
+  onFileChanged(event) {
+    this.thumbnail = event.target.files[0];
+  }
+  onSubmit(form) {
+    let formData: FormData = new FormData();
+    formData.append("title", form.value.title);
+    formData.append("body", form.value.body);
+    formData.append("category", "default");
+    formData.append("thumbnail", this.thumbnail ? this.thumbnail : "");
+    this.postData(formData);
   }
 
   constructor(private postPost: PortfolioService) {}
 
   postData(data) {
-    console.log("inlocal", data);
     this.postPost.postPost(data).subscribe(res => {
-      console.log(res);
+      alert("post created!");
     });
   }
   ngOnInit() {}

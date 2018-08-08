@@ -1,0 +1,12 @@
+<ng-progress [direction]="'ltr+'" [min]="20" [max]="1" [speed]="200" [trickleSpeed]="300" [spinner]="true" [spinnerPosition]="'left'"
+  [thick]="true" [meteor]="true" [color]="'#FF5F64'" [ease]="'linear'"></ng-progress>
+<article class="uk-article article-d uk-box-shadow-medium" *ngIf="!loading">
+  <img src="{{url + '/posts/' + post.thumbnail}}" alt="">
+  <h1 class="uk-article-title">
+    {{post.title}}
+  </h1>
+  <p class="uk-article-meta">
+    By Sadi Mahmud on {{post.createdAt | amTimeAgo}}
+  </p>
+  <div [innerHTML]="post.body"></div>
+</article>

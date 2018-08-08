@@ -1,0 +1,21 @@
+<form class="uk-form-stacked" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-text">
+      <h4>USERNAME</h4>
+    </label>
+    <div class="uk-form-controls">
+      <input required class="uk-input" [(ngModel)]="username" name="username" type="text" placeholder="...">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-text">
+      <h4>PASSWORD</h4>
+    </label>
+    <div class="uk-form-controls">
+      <input required class="uk-input" [(ngModel)]="password" name="password" type="password" placeholder="...">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <button class="uk-button uk-button-secondary uk-button-large">SUBMIT</button>
+  </div>
+</form>

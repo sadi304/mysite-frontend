@@ -1,24 +1,27 @@
+<ng-progress [direction]="'ltr+'" [min]="20" [max]="1" [speed]="200" [trickleSpeed]="300" [spinner]="true" [spinnerPosition]="'left'"
+  [thick]="true" [meteor]="true" [color]="'#FF5F64'" [ease]="'linear'"></ng-progress>
 <div class="uk-grid uk-child-width-1-1">
   <div>
-    <div class="uk-flex article-s uk-box-shadow-medium">
+    <div class="uk-flex article-s uk-box-shadow-medium" *ngFor="let post of posts">
       <div class="uk-width-1-5@m uk-margin-right">
-        <img src="http://via.placeholder.com/500x400/cccccc/000" alt="">
+        <div class="thumbnail" [style.background-image]="'url(' + url + '/posts/' + post.thumbnail + ')'"></div>
       </div>
       <div class="uk-width-expand@m uk-flex-middle uk-flex">
         <div class="article">
-          <h3>Dummy Post</h3>
-          <p class="uk-article-meta">Written by
-            <a href="#">Super User</a> on 12 April 2012. Posted in
-            <a href="#">Blog</a>
+          <a routerLink="/blog/detail/{{post.id}}">
+            <h3>{{post.title}}</h3>
+          </a>
+          <p class="uk-article-meta">By Sadi Mahmud on {{post.createdAt | amTimeAgo}}
           </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod tempor incididunt.</p>
-
+          <span class="post-body">
+            {{post.body | stripHtml }}....
+          </span>
+          <div>
+            <span class="uk-label">{{post.body | readTime}} Read</span>
+          </div>
         </div>
       </div>
 
     </div>
-
   </div>
 </div>

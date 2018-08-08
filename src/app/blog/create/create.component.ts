@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { CreatePostFormComponent } from "../../create-post-form/create-post-form.component";
 
 @Component({
   selector: "app-create",

@@ -1,9 +1,10 @@
+<ng-progress [direction]="'ltr+'" [min]="20" [max]="1" [speed]="200" [trickleSpeed]="300" [spinner]="true" [spinnerPosition]="'left'"
+  [thick]="true" [meteor]="true" [color]="'#FF5F64'" [ease]="'linear'"></ng-progress>
 <div class="uk-grid uk-grid-medium">
   <div *ngFor="let item of portfolios" class="uk-width-1-3@m">
     <div class="uk-card uk-card-default">
       <div class="uk-card-media-top">
-        <img src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4a41b5c0a117d8755515651254366c7a&auto=format&fit=crop&w=1350&q=80"
-          alt="">
+        <img src="/assets/portfolio.jpg" alt="">
       </div>
       <div class="uk-card-body">
         <h3 class="uk-card-title">{{item.title}}</h3>
